@@ -3,8 +3,8 @@ import java.util.*;
 public class Calculadora extends javax.swing.JFrame {
     
     double num1, num2;
-    String operation;
-    ArrayList<Double> allNum = new ArrayList();
+    int newLabel;
+    String operation, text, newText;
     
     public Calculadora() {
         initComponents();
@@ -13,6 +13,8 @@ public class Calculadora extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        exibirGroup = new javax.swing.ButtonGroup();
+        editarGroup = new javax.swing.ButtonGroup();
         panelShowNumbers = new javax.swing.JPanel();
         equationLabel = new javax.swing.JLabel();
         panelPressNumbers = new javax.swing.JPanel();
@@ -40,6 +42,15 @@ public class Calculadora extends javax.swing.JFrame {
         squareRootBtn = new javax.swing.JButton();
         potentiationBtn = new javax.swing.JButton();
         dividePerXBtn = new javax.swing.JButton();
+        menuBar = new javax.swing.JMenuBar();
+        exibirBtn = new javax.swing.JMenu();
+        padraoBtn = new javax.swing.JRadioButtonMenuItem();
+        cientificaBtn = new javax.swing.JRadioButtonMenuItem();
+        editarBtn = new javax.swing.JMenu();
+        colorDefaultBtn = new javax.swing.JRadioButtonMenuItem();
+        colorBlueBtn = new javax.swing.JRadioButtonMenuItem();
+        colorRedBtn = new javax.swing.JRadioButtonMenuItem();
+        ajudaBtn = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calculadora");
@@ -49,7 +60,6 @@ public class Calculadora extends javax.swing.JFrame {
         panelShowNumbers.setForeground(new java.awt.Color(255, 255, 255));
 
         equationLabel.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        equationLabel.setForeground(new java.awt.Color(0, 0, 0));
         equationLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
         javax.swing.GroupLayout panelShowNumbersLayout = new javax.swing.GroupLayout(panelShowNumbers);
@@ -74,7 +84,6 @@ public class Calculadora extends javax.swing.JFrame {
 
         num0Btn.setBackground(new java.awt.Color(255, 255, 255));
         num0Btn.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        num0Btn.setForeground(new java.awt.Color(0, 0, 0));
         num0Btn.setText("0");
         num0Btn.setToolTipText("");
         num0Btn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -85,7 +94,6 @@ public class Calculadora extends javax.swing.JFrame {
 
         num1Btn.setBackground(new java.awt.Color(255, 255, 255));
         num1Btn.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        num1Btn.setForeground(new java.awt.Color(0, 0, 0));
         num1Btn.setText("1");
         num1Btn.setToolTipText("");
         num1Btn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -96,7 +104,6 @@ public class Calculadora extends javax.swing.JFrame {
 
         num2Btn.setBackground(new java.awt.Color(255, 255, 255));
         num2Btn.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        num2Btn.setForeground(new java.awt.Color(0, 0, 0));
         num2Btn.setText("2");
         num2Btn.setToolTipText("");
         num2Btn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -107,7 +114,6 @@ public class Calculadora extends javax.swing.JFrame {
 
         num3Btn.setBackground(new java.awt.Color(255, 255, 255));
         num3Btn.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        num3Btn.setForeground(new java.awt.Color(0, 0, 0));
         num3Btn.setText("3");
         num3Btn.setToolTipText("");
         num3Btn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -118,7 +124,6 @@ public class Calculadora extends javax.swing.JFrame {
 
         num4Btn.setBackground(new java.awt.Color(255, 255, 255));
         num4Btn.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        num4Btn.setForeground(new java.awt.Color(0, 0, 0));
         num4Btn.setText("4");
         num4Btn.setToolTipText("");
         num4Btn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -129,7 +134,6 @@ public class Calculadora extends javax.swing.JFrame {
 
         num5Btn.setBackground(new java.awt.Color(255, 255, 255));
         num5Btn.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        num5Btn.setForeground(new java.awt.Color(0, 0, 0));
         num5Btn.setText("5");
         num5Btn.setToolTipText("");
         num5Btn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -140,7 +144,6 @@ public class Calculadora extends javax.swing.JFrame {
 
         num6Btn.setBackground(new java.awt.Color(255, 255, 255));
         num6Btn.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        num6Btn.setForeground(new java.awt.Color(0, 0, 0));
         num6Btn.setText("6");
         num6Btn.setToolTipText("");
         num6Btn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -151,7 +154,6 @@ public class Calculadora extends javax.swing.JFrame {
 
         num7Btn.setBackground(new java.awt.Color(255, 255, 255));
         num7Btn.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        num7Btn.setForeground(new java.awt.Color(0, 0, 0));
         num7Btn.setText("7");
         num7Btn.setToolTipText("");
         num7Btn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -162,7 +164,6 @@ public class Calculadora extends javax.swing.JFrame {
 
         num8Btn.setBackground(new java.awt.Color(255, 255, 255));
         num8Btn.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        num8Btn.setForeground(new java.awt.Color(0, 0, 0));
         num8Btn.setText("8");
         num8Btn.setToolTipText("");
         num8Btn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -173,7 +174,6 @@ public class Calculadora extends javax.swing.JFrame {
 
         num9Btn.setBackground(new java.awt.Color(255, 255, 255));
         num9Btn.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        num9Btn.setForeground(new java.awt.Color(0, 0, 0));
         num9Btn.setText("9");
         num9Btn.setToolTipText("");
         num9Btn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -184,19 +184,26 @@ public class Calculadora extends javax.swing.JFrame {
 
         plusminusBtn.setBackground(new java.awt.Color(153, 153, 153));
         plusminusBtn.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        plusminusBtn.setForeground(new java.awt.Color(0, 0, 0));
         plusminusBtn.setText("±");
         plusminusBtn.setToolTipText("");
+        plusminusBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                plusminusBtnMouseClicked(evt);
+            }
+        });
 
         dotBtn.setBackground(new java.awt.Color(153, 153, 153));
         dotBtn.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        dotBtn.setForeground(new java.awt.Color(0, 0, 0));
         dotBtn.setText(",");
         dotBtn.setToolTipText("");
+        dotBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dotBtnMouseClicked(evt);
+            }
+        });
 
         equalBtn.setBackground(new java.awt.Color(153, 153, 153));
         equalBtn.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        equalBtn.setForeground(new java.awt.Color(0, 0, 0));
         equalBtn.setText("=");
         equalBtn.setToolTipText("");
         equalBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -207,7 +214,6 @@ public class Calculadora extends javax.swing.JFrame {
 
         plusBtn.setBackground(new java.awt.Color(153, 153, 153));
         plusBtn.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        plusBtn.setForeground(new java.awt.Color(0, 0, 0));
         plusBtn.setText("+");
         plusBtn.setToolTipText("");
         plusBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -218,7 +224,6 @@ public class Calculadora extends javax.swing.JFrame {
 
         minusBtn.setBackground(new java.awt.Color(153, 153, 153));
         minusBtn.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        minusBtn.setForeground(new java.awt.Color(0, 0, 0));
         minusBtn.setText("-");
         minusBtn.setToolTipText("");
         minusBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -229,7 +234,6 @@ public class Calculadora extends javax.swing.JFrame {
 
         timesBtn.setBackground(new java.awt.Color(153, 153, 153));
         timesBtn.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        timesBtn.setForeground(new java.awt.Color(0, 0, 0));
         timesBtn.setText("×");
         timesBtn.setToolTipText("");
         timesBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -240,7 +244,6 @@ public class Calculadora extends javax.swing.JFrame {
 
         divisionBtn.setBackground(new java.awt.Color(153, 153, 153));
         divisionBtn.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        divisionBtn.setForeground(new java.awt.Color(0, 0, 0));
         divisionBtn.setText("÷");
         divisionBtn.setToolTipText("");
         divisionBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -251,13 +254,16 @@ public class Calculadora extends javax.swing.JFrame {
 
         clearEntryBtn.setBackground(new java.awt.Color(153, 153, 153));
         clearEntryBtn.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        clearEntryBtn.setForeground(new java.awt.Color(0, 0, 0));
         clearEntryBtn.setText("CE");
         clearEntryBtn.setToolTipText("");
+        clearEntryBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clearEntryBtnMouseClicked(evt);
+            }
+        });
 
         clearBtn.setBackground(new java.awt.Color(153, 153, 153));
         clearBtn.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        clearBtn.setForeground(new java.awt.Color(0, 0, 0));
         clearBtn.setText("C");
         clearBtn.setToolTipText("");
         clearBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -268,33 +274,53 @@ public class Calculadora extends javax.swing.JFrame {
 
         clearDigitBtn.setBackground(new java.awt.Color(153, 153, 153));
         clearDigitBtn.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        clearDigitBtn.setForeground(new java.awt.Color(0, 0, 0));
-        clearDigitBtn.setText("E");
+        clearDigitBtn.setText("<=");
         clearDigitBtn.setToolTipText("");
+        clearDigitBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clearDigitBtnMouseClicked(evt);
+            }
+        });
 
         percentBtn.setBackground(new java.awt.Color(153, 153, 153));
         percentBtn.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        percentBtn.setForeground(new java.awt.Color(0, 0, 0));
         percentBtn.setText("%");
         percentBtn.setToolTipText("");
+        percentBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                percentBtnMouseClicked(evt);
+            }
+        });
 
         squareRootBtn.setBackground(new java.awt.Color(153, 153, 153));
         squareRootBtn.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        squareRootBtn.setForeground(new java.awt.Color(0, 0, 0));
         squareRootBtn.setText("Raiz");
         squareRootBtn.setToolTipText("");
+        squareRootBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                squareRootBtnMouseClicked(evt);
+            }
+        });
 
         potentiationBtn.setBackground(new java.awt.Color(153, 153, 153));
         potentiationBtn.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        potentiationBtn.setForeground(new java.awt.Color(0, 0, 0));
         potentiationBtn.setText("x²");
         potentiationBtn.setToolTipText("");
+        potentiationBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                potentiationBtnMouseClicked(evt);
+            }
+        });
 
         dividePerXBtn.setBackground(new java.awt.Color(153, 153, 153));
         dividePerXBtn.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        dividePerXBtn.setForeground(new java.awt.Color(0, 0, 0));
         dividePerXBtn.setText("1/x");
         dividePerXBtn.setToolTipText("");
+        dividePerXBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dividePerXBtnMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelPressNumbersLayout = new javax.swing.GroupLayout(panelPressNumbers);
         panelPressNumbers.setLayout(panelPressNumbersLayout);
@@ -391,6 +417,53 @@ public class Calculadora extends javax.swing.JFrame {
                     .addComponent(dotBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
+
+        menuBar.setBackground(new java.awt.Color(255, 255, 255));
+
+        exibirBtn.setText("Exibir");
+
+        exibirGroup.add(padraoBtn);
+        padraoBtn.setSelected(true);
+        padraoBtn.setText("Padrão");
+        exibirBtn.add(padraoBtn);
+
+        exibirGroup.add(cientificaBtn);
+        cientificaBtn.setText("Científica");
+        exibirBtn.add(cientificaBtn);
+
+        menuBar.add(exibirBtn);
+
+        editarBtn.setText("Editar");
+
+        editarGroup.add(colorDefaultBtn);
+        colorDefaultBtn.setSelected(true);
+        colorDefaultBtn.setText("Cor Padrão");
+        editarBtn.add(colorDefaultBtn);
+
+        editarGroup.add(colorBlueBtn);
+        colorBlueBtn.setText("Cor Azul");
+        colorBlueBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                colorBlueBtnMouseClicked(evt);
+            }
+        });
+        editarBtn.add(colorBlueBtn);
+
+        editarGroup.add(colorRedBtn);
+        colorRedBtn.setText("Cor Vermelha");
+        colorRedBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                colorRedBtnMouseClicked(evt);
+            }
+        });
+        editarBtn.add(colorRedBtn);
+
+        menuBar.add(editarBtn);
+
+        ajudaBtn.setText("Ajuda");
+        menuBar.add(ajudaBtn);
+
+        setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -538,6 +611,8 @@ public class Calculadora extends javax.swing.JFrame {
             equationLabel.setText(String.valueOf(num1*num2));
         } else if(operation.equals("/")){
             equationLabel.setText(String.valueOf(num1/num2));
+        } else if(operation.equals("r")){
+            equationLabel.setText(String.valueOf(num1/num1));
         }
     }//GEN-LAST:event_equalBtnMouseClicked
 
@@ -553,6 +628,64 @@ public class Calculadora extends javax.swing.JFrame {
         operation = "/";
         equationLabel.setText("");
     }//GEN-LAST:event_divisionBtnMouseClicked
+
+    private void clearDigitBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearDigitBtnMouseClicked
+        // TODO add your handling code here:
+        newLabel = Integer.parseInt(equationLabel.getText());
+        newLabel = Math.round(newLabel / 10);
+        equationLabel.setText(String.valueOf(newLabel));
+    }//GEN-LAST:event_clearDigitBtnMouseClicked
+
+    private void percentBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_percentBtnMouseClicked
+        // TODO add your handling code here:
+        num1 = Double.parseDouble(equationLabel.getText());
+        equationLabel.setText(String.valueOf(num1/100));
+    }//GEN-LAST:event_percentBtnMouseClicked
+
+    private void squareRootBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_squareRootBtnMouseClicked
+        // TODO add your handling code here:
+        num1 = Double.parseDouble(equationLabel.getText());
+        equationLabel.setText(String.valueOf(Math.sqrt(num1)));
+    }//GEN-LAST:event_squareRootBtnMouseClicked
+
+    private void potentiationBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_potentiationBtnMouseClicked
+        // TODO add your handling code here:
+        num1 = Double.parseDouble(equationLabel.getText());
+        equationLabel.setText(String.valueOf(num1 * num1));
+    }//GEN-LAST:event_potentiationBtnMouseClicked
+
+    private void dividePerXBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dividePerXBtnMouseClicked
+        // TODO add your handling code here:
+        num1 = Double.parseDouble(equationLabel.getText());
+        equationLabel.setText(String.valueOf(1/num1));
+    }//GEN-LAST:event_dividePerXBtnMouseClicked
+
+    private void clearEntryBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearEntryBtnMouseClicked
+        // TODO add your handling code here:
+        num1 = 0; num2 = 0; operation = "";
+        equationLabel.setText("");
+    }//GEN-LAST:event_clearEntryBtnMouseClicked
+
+    private void plusminusBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plusminusBtnMouseClicked
+        // TODO add your handling code here:
+        num1 = Double.parseDouble(equationLabel.getText());
+        num1 = -num1;
+        equationLabel.setText(String.valueOf(num1));
+    }//GEN-LAST:event_plusminusBtnMouseClicked
+
+    private void dotBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dotBtnMouseClicked
+        // TODO add your handling code here:
+        equationLabel.setText(equationLabel.getText()+".");
+    }//GEN-LAST:event_dotBtnMouseClicked
+
+    private void colorBlueBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_colorBlueBtnMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_colorBlueBtnMouseClicked
+
+    private void colorRedBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_colorRedBtnMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_colorRedBtnMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -587,14 +720,24 @@ public class Calculadora extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu ajudaBtn;
+    private javax.swing.JRadioButtonMenuItem cientificaBtn;
     private javax.swing.JButton clearBtn;
     private javax.swing.JButton clearDigitBtn;
     private javax.swing.JButton clearEntryBtn;
+    private javax.swing.JRadioButtonMenuItem colorBlueBtn;
+    private javax.swing.JRadioButtonMenuItem colorDefaultBtn;
+    private javax.swing.JRadioButtonMenuItem colorRedBtn;
     private javax.swing.JButton dividePerXBtn;
     private javax.swing.JButton divisionBtn;
     private javax.swing.JButton dotBtn;
+    private javax.swing.JMenu editarBtn;
+    private javax.swing.ButtonGroup editarGroup;
     private javax.swing.JButton equalBtn;
     private javax.swing.JLabel equationLabel;
+    private javax.swing.JMenu exibirBtn;
+    private javax.swing.ButtonGroup exibirGroup;
+    private javax.swing.JMenuBar menuBar;
     private javax.swing.JButton minusBtn;
     private javax.swing.JButton num0Btn;
     private javax.swing.JButton num1Btn;
@@ -606,6 +749,7 @@ public class Calculadora extends javax.swing.JFrame {
     private javax.swing.JButton num7Btn;
     private javax.swing.JButton num8Btn;
     private javax.swing.JButton num9Btn;
+    private javax.swing.JRadioButtonMenuItem padraoBtn;
     private javax.swing.JPanel panelPressNumbers;
     private javax.swing.JPanel panelShowNumbers;
     private javax.swing.JButton percentBtn;
